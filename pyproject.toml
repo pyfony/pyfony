@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "pyfony"
+version = "0.1.0"
+description = "Dependency Injection powered framework"
+readme = "README.md"
+repository = "https://github.com/DataSentics/pyfony"
+
+license = "MIT"
+
+authors = [
+    "Jiri Koutny <jiri.koutny@datasentics.com>"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+include = ["*.yaml"]
+
+packages = [
+    { include = "pyfony", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = "~3.7.3"
+injecta = "0.6.*"
+console-bundle = "0.2.*"
+logger-bundle = "0.1.*"
+
+[tool.poetry.dev-dependencies]
+pylint = "2.4.*"
+deepdiff = "4.0.*"
