@@ -25,7 +25,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "~3.7.3"
-injecta = "0.6.*"
+injecta = "^0.6.2"
 console-bundle = "0.2.*"
 logger-bundle = "0.2.*"
 

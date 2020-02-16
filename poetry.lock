@@ -151,7 +151,7 @@ description = "Dependency Injection Container Library"
 name = "injecta"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.6.1"
+version = "0.6.2"
 
 [package.dependencies]
 PyYAML = ">=5.1.0,<5.2.0"
@@ -423,7 +423,7 @@ python-versions = "*"
 version = "1.11.2"
 
 [metadata]
-content-hash = "f55af612495ffc6d12309e54ed8348eac814f5ed2a384c349b91254a1b52fe3a"
+content-hash = "c82ece5c5082b5ac61050661db9a8bc29597768bfdab04681bab97f3d0ec15ea"
 python-versions = "~3.7.3"
 
 [metadata.files]
@@ -475,8 +475,8 @@ idna = [
     {file = "idna-2.8.tar.gz", hash = "sha256:c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"},
 ]
 injecta = [
-    {file = "injecta-0.6.1-py3-none-any.whl", hash = "sha256:fc6f1bfc8ff0387ff91967917ab667a054e7a98b61fa5e06f51d297f8c41a88f"},
-    {file = "injecta-0.6.1.tar.gz", hash = "sha256:dbe7257f61b207193ca1a57c88e4b42711c7bbf1eca206a286651849de944003"},
+    {file = "injecta-0.6.2-py3-none-any.whl", hash = "sha256:610c54ef06d8b2d9fae3c80e3b8f77f1537e32b051d0a6ac63282721547bc4f0"},
+    {file = "injecta-0.6.2.tar.gz", hash = "sha256:42868234958b9a27ab51f04cdfc3ab82b651e937670004a9641d54ec7ea1292a"},
 ]
 isort = [
     {file = "isort-4.3.21-py2.py3-none-any.whl", hash = "sha256:6e811fcb295968434526407adb8796944f1988c5b65e8139058f2014cbe100fd"},
