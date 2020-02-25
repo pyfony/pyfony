@@ -27,7 +27,7 @@ packages = [
 python = "~3.7.3"
 injecta = "^0.6.2"
 console-bundle = "0.2.*"
-logger-bundle = "0.3.*"
+logger-bundle = "0.4.*"
 
 [tool.poetry.dev-dependencies]
 pylint = "2.4.*"
