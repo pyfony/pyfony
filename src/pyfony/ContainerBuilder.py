@@ -37,6 +37,11 @@ class ContainerBuilder:
         self.__tag2ServicesPreparer = Tag2ServicesPreparer()
 
     def build(self, appRawConfig: dict, bundles: List[Bundle], appEnv: str, configPath: str) -> ContainerBuild:
+        if 'parameters' not in appRawConfig:
+            appRawConfig['parameters'] = dict()
+        if 'services' not in appRawConfig:
+            appRawConfig['services'] = dict()
+
         bundleManager = BundleManager([PyfonyBundle()] + bundles)
 
         rawConfig = bundleManager.mergeRawConfig(appRawConfig)
