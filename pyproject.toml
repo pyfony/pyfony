@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyfony"
-version = "0.4.1"
+version = "0.4.2"
 description = "Dependency Injection powered framework"
 readme = "README.md"
 repository = "https://github.com/DataSentics/pyfony"
