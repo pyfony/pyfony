@@ -16,7 +16,6 @@ To start using Pyfony, create a simple `config.yaml` file to define your DI serv
 parameters:
   api:
     endpoint: 'https://api.mycompany.com'
-    token: '%env(API_TOKEN)%'
 
 services:
     mycompany.api.ApiClient:
@@ -27,7 +26,7 @@ services:
       class: mycompany.authenticator.RestAuthenticator
       arguments:
         - '%api.endpoint%'
-        - '%api.token%'
+        - '%env(API_TOKEN)%'
 ```
 
 Then, initialize the container:
@@ -59,3 +58,10 @@ from mycompany.api.ApiClient import ApiClient
 apiClient = container.get('mycompany.api.ApiClient') # type: ApiClient   
 apiClient.get('/foo/bar')
 ```
+
+## Advanced examples
+
+1. [Configuring services using parameters](docs/parameters.md)
+1. [Service autowiring](docs/autowiring.md)
+1. [Using service factories](docs/factories.md)
+1. [Tagged services](docs/tagging.md)
