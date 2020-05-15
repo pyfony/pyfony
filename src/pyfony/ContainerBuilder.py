@@ -7,8 +7,6 @@ from injecta.service.ServicesPreparer import ServicesPreparer
 from injecta.service.DTypeResolver import DTypeResolver
 from injecta.parameter.ParametersParser import ParametersParser
 from injecta.service.Classes2ServicesBuilder import Classes2ServicesBuilder
-from injecta.autowiring.ArgumentResolver import ArgumentResolver
-from injecta.autowiring.ArgumentsAutowirer import ArgumentsAutowirer
 from injecta.service.resolved.ResolvedService import ResolvedService
 from injecta.service.resolved.ServiceResolver import ServiceResolver
 from injecta.service.ServiceParser import ServiceParser
@@ -30,9 +28,6 @@ class ContainerBuilder:
             )
         )
         self.__servicesResolver = ServiceResolver()
-        self.__autowirer = ArgumentsAutowirer(
-            ArgumentResolver()
-        )
         self.__parametersParser = ParametersParser()
         self.__tag2ServicesPreparer = Tag2ServicesPreparer()
 
