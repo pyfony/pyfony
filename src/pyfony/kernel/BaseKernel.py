@@ -1,9 +1,10 @@
 from typing import List
 from injecta.config.ConfigReaderInterface import ConfigReaderInterface
+from injecta.container.ContainerBuilder import ContainerBuilder
 from injecta.container.ContainerInitializer import ContainerInitializer
 from injecta.container.ContainerInterface import ContainerInterface
 from pyfonybundles.Bundle import Bundle
-from pyfony.ContainerBuilder import ContainerBuilder
+from pyfony.container.PyfonyHook import PyfonyHooks
 
 class BaseKernel:
 
@@ -24,14 +25,14 @@ class BaseKernel:
         self._containerBuilder = ContainerBuilder()
 
     def initContainer(self) -> ContainerInterface:
-        configPath = self._getConfigPath()
-
-        containerBuild = self._containerBuilder.build(
-            self.__configReader.read(configPath),
+        config = self.__configReader.read(self._getConfigPath())
+        hooks = PyfonyHooks(
             self._registerBundles(),
-            self._appEnv,
-            configPath,
+            self._getConfigPath(),
+            self._appEnv
         )
+
+        containerBuild = self._containerBuilder.build(config, hooks)
 
         container = ContainerInitializer().init(containerBuild)
 

@@ -2,15 +2,21 @@
 
 Pyfony is a **Dependency Injection (DI) powered framework** written in Python greatly inspired by the [Symfony Framework](https://symfony.com/) in PHP & [Spring Framework](https://spring.io/projects/spring-framework) in Java.
 
+The DI functionality is provided by the [Injecta Dependency Injection Container](https://github.com/pyfony/injecta).
+
+Pyfony = **Injecta + bundles (extensions) API**
+
 ## Installation
 
 ```
 $ pip install pyfony
 ```
 
-## Simple container initialization
+## Pyfony initialization
 
-To start using Pyfony, create a simple `config.yaml` file to define your DI services:
+(The following steps are covered in the [BaseKernelTest](src/pyfony/kernel/BaseKernelTest.py))
+
+To start using Pyfony, create a simple `config_dev.yaml` file to define your DI services:
 
 ```yaml
 parameters:
@@ -32,22 +38,18 @@ services:
 Then, initialize the container:
 
 ```python
-from pyfony.ContainerBuilder import ContainerBuilder
 from injecta.config.YamlConfigReader import YamlConfigReader
-from pyfony.PyfonyBundle import PyfonyBundle
-from injecta.container.ContainerInitializer import ContainerInitializer
+from pyfony.kernel.BaseKernel import BaseKernel
 
-configPath = '/path/to/config.yaml'
 appEnv = 'dev'
 
-containerBuild = ContainerBuilder().build(
-    YamlConfigReader().read(configPath),
-    [PyfonyBundle()],
+kernel = BaseKernel(
     appEnv,
-    configPath,
+    '/config/dir/path', # must be directory, not the config_dev.yaml file path!
+    YamlConfigReader()
 )
 
-container = ContainerInitializer().init(containerBuild)
+container = kernel.initContainer()
 ```
 
 Use `container.get()` to finally retrieve your service:
@@ -61,7 +63,4 @@ apiClient.get('/foo/bar')
 
 ## Advanced examples
 
-1. [Configuring services using parameters](docs/parameters.md)
-1. [Service autowiring](docs/autowiring.md)
-1. [Using service factories](docs/factories.md)
-1. [Tagged services](docs/tagging.md)
+For more examples, see the [Injecta documentation](https://github.com/pyfony/injecta/blob/master/README.md)

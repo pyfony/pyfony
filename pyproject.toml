@@ -25,10 +25,11 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "~3.7.3"
-injecta = "0.6.* || 0.7.*"
-console-bundle = "0.2.*"
-logger-bundle = "0.5.*"
+injecta = "^0.8.1"
+console-bundle = "^0.2.5"
+logger-bundle = "^0.5.3"
 
 [tool.poetry.dev-dependencies]
 pylint = "2.4.*"
 deepdiff = "4.0.*"
+pytest = "5.2.*"
