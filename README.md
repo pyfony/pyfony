@@ -63,4 +63,5 @@ apiClient.get('/foo/bar')
 
 ## Advanced examples
 
-For more examples, see the [Injecta documentation](https://github.com/pyfony/injecta/blob/master/README.md)
+1. [Advanced services configuration using Injecta](https://github.com/pyfony/injecta/blob/master/README.md)
+1. [Extending Pyfony with bundles](docs/bundles.md)
