@@ -28,6 +28,7 @@ python = "~3.7.3"
 injecta = "^0.8.1"
 console-bundle = "^0.2.5"
 logger-bundle = "^0.5.3"
+pyfony-bundles = "^0.2.3"
 
 [tool.poetry.dev-dependencies]
 pylint = "2.4.*"

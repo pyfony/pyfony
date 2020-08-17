@@ -14,14 +14,17 @@ class PyfonyHooks(Hooks):
         self,
         bundles: List[Bundle],
         configPath: str,
+        projectBundlesConfigDir: str,
         appEnv: str
     ):
         self.__bundleManager = BundleManager(bundles)
         self.__configPath = configPath
+        self.__projectBundlesConfigDir = projectBundlesConfigDir
         self.__appEnv = appEnv
 
     def start(self, rawConfig: dict) -> dict:
         rawConfig = self.__bundleManager.mergeRawConfig(rawConfig)
+        rawConfig = self.__bundleManager.loadProjectBundlesConfig(rawConfig, self.__projectBundlesConfigDir)
         rawConfig = self.__bundleManager.modifyRawConfig(rawConfig)
 
         return rawConfig
