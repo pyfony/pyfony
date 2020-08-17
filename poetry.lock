@@ -222,7 +222,7 @@ description = "Pyfony Framework bundles base package"
 name = "pyfony-bundles"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.2.3"
+version = "0.2.4"
 
 [package.dependencies]
 injecta = ">=0.6.0,<0.9.0"
@@ -361,7 +361,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "aaeeb3c1aef74ef0150dd00a0c2c341aa5fd37bebdb3b1cb05d6b39040f342f0"
+content-hash = "6152a3b18cd5d070354c80e4c12720f20b5c17463d1f679bc52654f26ee5483e"
 python-versions = "~3.7.3"
 
 [metadata.files]
@@ -460,7 +460,7 @@ py = [
     {file = "py-1.8.1.tar.gz", hash = "sha256:5e27081401262157467ad6e7f851b7aa402c5852dbcb3dae06768434de5752aa"},
 ]
 pyfony-bundles = [
-    {file = "pyfony_bundles-0.2.3-py3-none-any.whl", hash = "sha256:0098079297236eb471136b2e2ef0c0087481ff7577c39a19a6159cd537750708"},
+    {file = "pyfony_bundles-0.2.4-py3-none-any.whl", hash = "sha256:615725b697fd66e4b10a2ec0cb6414a3bae20a3a437a20b686c4e2a92e882f68"},
 ]
 pylint = [
     {file = "pylint-2.4.4-py3-none-any.whl", hash = "sha256:886e6afc935ea2590b462664b161ca9a5e40168ea99e5300935f6591ad467df4"},

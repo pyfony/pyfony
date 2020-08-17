@@ -2,6 +2,7 @@ import os
 from typing import List
 from box import Box
 from injecta.compiler.CompilerPassInterface import CompilerPassInterface
+from injecta.config.ConfigMerger import ConfigMerger
 from injecta.container.ContainerBuild import ContainerBuild
 from injecta.container.Hooks import Hooks
 from injecta.service.Service import Service
@@ -17,17 +18,22 @@ class PyfonyHooks(Hooks):
         projectBundlesConfigDir: str,
         appEnv: str
     ):
+        self.__configMerger = ConfigMerger()
         self.__bundleManager = BundleManager(bundles)
         self.__configPath = configPath
         self.__projectBundlesConfigDir = projectBundlesConfigDir
         self.__appEnv = appEnv
 
     def start(self, rawConfig: dict) -> dict:
-        rawConfig = self.__bundleManager.mergeRawConfig(rawConfig)
-        rawConfig = self.__bundleManager.loadProjectBundlesConfig(rawConfig, self.__projectBundlesConfigDir)
-        rawConfig = self.__bundleManager.modifyRawConfig(rawConfig)
+        bundlesConfig = self.__bundleManager.getBundlesConfig()
+        projectBundlesConfig = self.__bundleManager.getProjectBundlesConfig(self.__projectBundlesConfigDir)
 
-        return rawConfig
+        rawConfig = self.__configMerger.merge(
+            self.__configMerger.merge(bundlesConfig, projectBundlesConfig),
+            rawConfig
+        )
+
+        return self.__bundleManager.modifyRawConfig(rawConfig)
 
     def servicesPrepared(self, services: List[Service]) -> List[Service]:
         return self.__bundleManager.modifyServices(services)
