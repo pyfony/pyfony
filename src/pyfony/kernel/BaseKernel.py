@@ -1,6 +1,7 @@
 import os
 from typing import List
 from injecta.config.ConfigReaderInterface import ConfigReaderInterface
+from injecta.container.ContainerBuild import ContainerBuild
 from injecta.container.ContainerBuilder import ContainerBuilder
 from injecta.container.ContainerInitializer import ContainerInitializer
 from injecta.container.ContainerInterface import ContainerInterface
@@ -26,18 +27,24 @@ class BaseKernel:
         self._containerBuilder = ContainerBuilder()
 
     def initContainer(self) -> ContainerInterface:
+        hooks = self._createPyfonyHooks()
+        return self._initContainerFromHooks(hooks)
+
+    def _initContainerFromHooks(self, hooks: PyfonyHooks):
         config = self.__configReader.read(self._getConfigPath())
-        hooks = PyfonyHooks(
+        containerBuild = self._containerBuilder.build(config, hooks)
+        return self._initAndBootContainer(containerBuild)
+
+    def _createPyfonyHooks(self):
+        return PyfonyHooks(
             self._registerBundles(),
             self._getConfigPath(),
             self._getProjectBundlesConfigDir(),
             self._appEnv
         )
 
-        containerBuild = self._containerBuilder.build(config, hooks)
-
+    def _initAndBootContainer(self, containerBuild: ContainerBuild):
         container = ContainerInitializer().init(containerBuild)
-
         self._boot(container)
 
         return container
