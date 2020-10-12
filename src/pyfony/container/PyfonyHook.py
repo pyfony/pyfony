@@ -39,7 +39,7 @@ class PyfonyHooks(Hooks):
         return self.__bundleManager.modifyServices(services)
 
     def getCustomParameters(self) -> dict:
-        return {
+        pyfonyCustomParameters = {
             'project': {
                 'configDir': os.path.dirname(self.__configPath),
             },
@@ -47,6 +47,8 @@ class PyfonyHooks(Hooks):
                 'environment': self.__appEnv,
             },
         }
+
+        return self.__configMerger.merge(super().getCustomParameters(), pyfonyCustomParameters, False)
 
     def parametersParsed(self, parameters: Box) -> Box:
         return self.__bundleManager.modifyParameters(parameters)

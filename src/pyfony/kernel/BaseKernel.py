@@ -30,6 +30,11 @@ class BaseKernel:
         hooks = self._createPyfonyHooks()
         return self._initContainerFromHooks(hooks)
 
+    def initContainerForTesting(self):
+        hooks = self._createPyfonyHooks()
+        hooks.enableServicesTestingMode()
+        return self._initContainerFromHooks(hooks)
+
     def _initContainerFromHooks(self, hooks: PyfonyHooks):
         config = self.__configReader.read(self._getConfigPath())
         containerBuild = self._containerBuilder.build(config, hooks)

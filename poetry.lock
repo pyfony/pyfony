@@ -107,7 +107,7 @@ description = "Dependency Injection Container Library"
 name = "injecta"
 optional = false
 python-versions = ">=3.7.3,<3.8.0"
-version = "0.8.1"
+version = "0.8.11"
 
 [package.dependencies]
 PyYAML = ">=5.1.0,<5.2.0"
@@ -361,7 +361,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "6152a3b18cd5d070354c80e4c12720f20b5c17463d1f679bc52654f26ee5483e"
+content-hash = "80fe5c4a962668b3c2e4e78720d1c40b9a58fccdb2743af2358eed0197e369ed"
 python-versions = "~3.7.3"
 
 [metadata.files]
@@ -398,8 +398,7 @@ importlib-metadata = [
     {file = "importlib_metadata-1.6.0.tar.gz", hash = "sha256:34513a8a0c4962bc66d35b359558fd8a5e10cd472d37aec5f66858addef32c1e"},
 ]
 injecta = [
-    {file = "injecta-0.8.1-py3-none-any.whl", hash = "sha256:3f96c0b10f91107cd18846089f8e936ce0c02fc944fc577ec1433d8310001516"},
-    {file = "injecta-0.8.1.tar.gz", hash = "sha256:ef7981b71a6cfc85acd1bb69eb5ff4505b7f52140243aa1c6faa2694d1c74b85"},
+    {file = "injecta-0.8.11-py3-none-any.whl", hash = "sha256:d5b89d035f861bb4776c5667292debad672afb1877405b5aaefec516871c7795"},
 ]
 isort = [
     {file = "isort-4.3.21-py2.py3-none-any.whl", hash = "sha256:6e811fcb295968434526407adb8796944f1988c5b65e8139058f2014cbe100fd"},
