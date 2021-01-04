@@ -14,7 +14,7 @@ $ pip install pyfony
 
 ## Pyfony initialization
 
-(The following steps are covered in the [BaseKernelTest](src/pyfony/kernel/BaseKernelTest.py))
+(The following steps are covered in the [PyfonyBundleTest](src/pyfony/PyfonyBundleTest.py))
 
 To start using Pyfony, create a simple `config_dev.yaml` file to define your DI services:
 
@@ -39,13 +39,15 @@ Then, initialize the container:
 
 ```python
 from injecta.config.YamlConfigReader import YamlConfigReader
-from pyfony.kernel.BaseKernel import BaseKernel
+from pyfony.Kernel import Kernel
+from pyfonybundles.loader import pyfonyBundlesLoader
 
 appEnv = 'dev'
 
-kernel = BaseKernel(
+kernel = Kernel(
     appEnv,
     '/config/dir/path', # must be directory, not the config_dev.yaml file path!
+    pyfonyBundlesLoader.loadBundles(),
     YamlConfigReader()
 )
 

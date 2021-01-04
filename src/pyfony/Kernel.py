@@ -8,7 +8,7 @@ from injecta.container.ContainerInterface import ContainerInterface
 from pyfonybundles.Bundle import Bundle
 from pyfony.container.PyfonyHook import PyfonyHooks
 
-class BaseKernel:
+class Kernel:
 
     _allowedEnvironments = ['dev', 'test', 'prod']
 
@@ -16,23 +16,23 @@ class BaseKernel:
         self,
         appEnv: str,
         configDir: str,
+        bundles: List[Bundle],
         configReader: ConfigReaderInterface
     ):
-        if appEnv not in self._allowedEnvironments:
-            raise Exception('Unexpected environment: {}'.format(appEnv))
-
         self._appEnv = appEnv
         self._configDir = configDir
+        self._bundles = bundles
         self.__configReader = configReader
         self._containerBuilder = ContainerBuilder()
 
-    def initContainer(self) -> ContainerInterface:
-        hooks = self._createPyfonyHooks()
-        return self._initContainerFromHooks(hooks)
+    def setAllowedEnvironments(self, allowedEnvironments: list):
+        self._allowedEnvironments = allowedEnvironments
 
-    def initContainerForTesting(self):
+    def initContainer(self) -> ContainerInterface:
+        if self._appEnv not in self._allowedEnvironments:
+            raise Exception(f'Unexpected environment: {self._appEnv}')
+
         hooks = self._createPyfonyHooks()
-        hooks.enableServicesTestingMode()
         return self._initContainerFromHooks(hooks)
 
     def _initContainerFromHooks(self, hooks: PyfonyHooks):
@@ -42,7 +42,7 @@ class BaseKernel:
 
     def _createPyfonyHooks(self):
         return PyfonyHooks(
-            self._registerBundles(),
+            self._bundles,
             self._getConfigPath(),
             self._getProjectBundlesConfigDir(),
             self._appEnv
@@ -55,14 +55,11 @@ class BaseKernel:
         return container
 
     def _getConfigPath(self):
-        return self._configDir + '/config_{}.yaml'.format(self._appEnv)
+        return f'{self._configDir}/config_{self._appEnv}.yaml'
 
     def _getProjectBundlesConfigDir(self):
         return os.path.dirname(self._getConfigPath()) + '/bundles'
 
-    def _registerBundles(self) -> List[Bundle]:
-        return []
-
     def _boot(self, container: ContainerInterface):
-        for bundle in self._registerBundles():
+        for bundle in self._bundles:
             bundle.boot(container)

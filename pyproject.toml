@@ -26,11 +26,14 @@ packages = [
 [tool.poetry.dependencies]
 python = "~3.7.3"
 injecta = "^0.8.11"
-console-bundle = "^0.2.5"
-logger-bundle = "^0.5.3"
-pyfony-bundles = "^0.2.4"
+console-bundle = "0.3.0a2"
+logger-bundle = "0.6.0a2"
+pyfony-bundles = "0.2.5a2"
 
 [tool.poetry.dev-dependencies]
 pylint = "2.4.*"
 deepdiff = "4.0.*"
 pytest = "5.2.*"
+
+[tool.poetry.plugins."pyfony.bundle"]
+autodetect = "pyfony.PyfonyBundle:PyfonyBundle.autodetect"

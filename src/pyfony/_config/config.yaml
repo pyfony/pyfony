@@ -1,0 +1,6 @@
+services:
+  pyfony.container.ContainerInitTestingCommand:
+    arguments:
+      - '@consolebundle.logger'
+    tags:
+      - 'console.command'
