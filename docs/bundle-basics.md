@@ -2,7 +2,21 @@
 
 There are some differences that distinguish bundle from a standard python package. The most important are the following:
 
-### 1. Bundle initialization file
+### 1. Base dependencies
+
+```toml
+[tool.poetry.dependencies]
+pyfony-bundles = "[enter version]" # bundle base libraries
+console-bundle = "[enter version]" # (optional) if you want your bundle to be able to define console commands
+
+[tool.poetry.dev-dependencies]
+pyfony-core = "[enter version]" # used for testing only in bundle development
+```
+
+* [console-bundle](https://github.com/pyfony/console-bundle) - empowering Pyfony with pluggable CLI commands
+* [logger-bundle](https://github.com/pyfony/logger-bundle) - base logging bundle, enables stdout logging and introduces API for custom log handlers
+
+### 2. Bundle initialization file
 
 Usually stored in `src/[rootmodule]/[BundleName].py`.
 
@@ -15,7 +29,7 @@ class SomeBundle(Bundle):
     pass
 ```
 
-### 2. Entry point registration
+### 3. Entry point registration
 
 Each bundle class must be registered using the following entry point defined in pyproject.toml:
 
@@ -24,7 +38,7 @@ Each bundle class must be registered using the following entry point defined in 
 create = "somebundle.SomeBundle:SomeBundle"
 ```
 
-### 3. Bundle configuration
+### 4. Bundle configuration
 
 Usually stored in `src/[rootmodule]/_config/config.yaml`.
 
