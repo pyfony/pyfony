@@ -1,7 +1,5 @@
 # Bundle development
 
-## Developing basic functionality
-
 ### 1. Development configuration file
 
 Create an empty `src/[rootmodule]/_config/config_dev.yaml` to define your custom development configuration.
