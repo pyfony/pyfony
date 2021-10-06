@@ -21,7 +21,10 @@ root_module_name = "somebundle"
 
 Create a new test suite (usually in `src/[rootmodule]/SomeBundleTest.py`) to validate that services in your bundle can be properly composed.
 
-**Note:** The following code requires pytest. Install it by calling `poetry add pytest="^5.2" --dev`.
+The following test code requires:
+
+* pytest - install it by calling `poetry add pytest="^5.2" --dev`
+* empty `src/[rootmodule]/_config/config_test.yaml` file to be created 
 
 ```python
 import unittest
