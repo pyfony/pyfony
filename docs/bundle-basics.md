@@ -13,9 +13,6 @@ console-bundle = "[enter version]" # (optional) if you want your bundle to be ab
 pyfony-core = "[enter version]" # used for testing only in bundle development
 ```
 
-* [console-bundle](https://github.com/pyfony/console-bundle) - empowering Pyfony with pluggable CLI commands
-* [logger-bundle](https://github.com/pyfony/logger-bundle) - base logging bundle, enables stdout logging and introduces API for custom log handlers
-
 ### 2. Bundle initialization file
 
 Usually stored in `src/[rootmodule]/[BundleName].py`.
