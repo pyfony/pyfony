@@ -16,3 +16,4 @@ Check [https://github.com/pyfony/pyfony-demo](pyfony-demo) to see a minimal work
 1. [Advanced services configuration using Injecta](https://github.com/pyfony/injecta/blob/master/README.md)
 2. [Extending Pyfony with bundles](docs/bundles.md)
 3. [Bundle basics](docs/bundle-basics.md)
+4. [Bundle development](docs/bundle-development.md)
