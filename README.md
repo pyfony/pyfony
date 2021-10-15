@@ -8,7 +8,7 @@ Pyfony = **Injecta + bundles (extensions) API**
 
 ## How to use it
 
-Check [https://github.com/pyfony/pyfony-demo](pyfony-demo) to see a minimal working example of a pyfony-powered app. 
+Check [pyfony-demo](https://github.com/pyfony/pyfony-demo) to see a minimal working example of a pyfony-powered app. 
 
 
 ## Advanced examples
