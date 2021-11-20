@@ -4,7 +4,7 @@ Pyfony is a **Dependency Injection (DI) powered framework** written in Python gr
 
 The DI functionality is provided by the [Injecta Dependency Injection Container](https://github.com/pyfony/injecta).
 
-Pyfony = **Injecta + bundles (extensions) API**
+Pyfony = [Injecta](https://github.com/pyfony/injecta) + [bundles (extensions) API](https://github.com/pyfony/pyfony-bundles)
 
 ## How to use it
 
